@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>武威吧-甘肃武威本地生活资讯与网友交流社区</title>
+    <meta name="description" content="武威吧是甘肃武威本地最大的网络社区，提供武威本地新闻、生活资讯、吃喝玩乐、房产信息及网友互动交流平台。">
+    <meta name="keywords" content="武威吧,武威论坛,武威本地,武威新闻,武威生活,武威贴吧,甘肃武威">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #d9534f; /* 活力红，符合社区活跃氛围 */
+            --primary-hover: #c9302c;
+            --secondary-color: #f0ad4e;
+            --bg-body: #f5f5f5;
+            --bg-card: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --text-light: #999999;
+            --border-color: #e1e1e1;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+            --header-height: 64px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-card);
+            height: var(--header-height);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-menu a {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--primary-color);
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            outline: none;
+            width: 200px;
+            transition: width 0.3s;
+        }
+
+        .search-box input:focus {
+            width: 240px;
+            border-color: var(--primary-color);
+        }
+
+        .search-box button {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--text-light);
+            cursor: pointer;
+        }
+
+        /* Layout */
+        .main-wrapper {
+            max-width: var(--container-width);
+            margin: var(--spacing-unit) auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: var(--spacing-unit);
+        }
+
+        /* Content Area */
+        .content-column {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-unit);
+        }
+
+        /* Hero Section */
+        .hero-banner {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 8px;
+            padding: 40px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-banner h2 {
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+
+        .hero-banner p {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 24px;
+            max-width: 600px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 32px;
+        }
+
+        .stat-item strong {
+            display: block;
+            font-size: 24px;
+        }
+
+        .stat-item span {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* Section Styling */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 8px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .section-more {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .section-more:hover {
+            color: var(--primary-color);
+        }
+
+        /* Topic List */
+        .topic-list {
+            background: var(--bg-card);
+            border-radius: 8px;
+            padding: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .topic-item {
+            display: flex;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .topic-item:last-child {
+            border-bottom: none;
+        }
+
+        .topic-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: #eee;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .topic-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .topic-content {
+            flex: 1;
+        }
+
+        .topic-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--text-main);
+        }
+
+        .topic-title:hover {
+            color: var(--primary-color);
+        }
+
+        .topic-meta {
+            font-size: 13px;
+            color: var(--text-light);
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .topic-tag {
+            background-color: #fff0f0;
+            color: var(--primary-color);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        /* Sidebar */
+        .sidebar-column {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-unit);
+        }
+
+        .sidebar-card {
+            background: var(--bg-card);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .rank-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .rank-number {
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            border-radius: 50%;
+            background-color: #f0f0f0;
+            color: var(--text-light);
+            font-size: 12px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .rank-list li:nth-child(1) .rank-number { background-color: #ff4d4f; color: white; }
+        .rank-list li:nth-child(2) .rank-number { background-color: #ff7a45; color: white; }
+        .rank-list li:nth-child(3) .rank-number { background-color: #ffa940; color: white; }
+
+        .rank-list li a {
+            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .rank-list li a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hot Topics Grid */
+        .hot-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .hot-item {
+            background-color: #fafafa;
+            padding: 12px;
+            border-radius: 6px;
+            transition: transform 0.2s;
+        }
+
+        .hot-item:hover {
+            transform: translateY(-2px);
+            background-color: #fff0f0;
+        }
+
+        .hot-item .rank-num {
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 14px;
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        .hot-item .title {
+            font-size: 13px;
+            line-height: 1.4;
+            color: var(--text-main);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2b2b2b;
+            color: #999;
+            padding: 40px 0;
+            margin-top: 40px;
+            font-size: 14px;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            margin: 0 12px;
+            color: #ccc;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .nav-menu {
+                display: none; /* Simplify for mobile */
+            }
+            .header-container {
+                justify-content: center;
+            }
+            .hero-banner {
+                padding: 24px;
+            }
+            .hero-stats {
+                flex-direction: column;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                <span>武威吧</span>
+            </a>
+            <nav class="nav-menu">
+                <a href="#" class="active">首页</a>
+                <a href="#">同城话题</a>
+                <a href="#">生活服务</a>
+                <a href="#">资讯爆料</a>
+                <a href="#">灌水休闲</a>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索武威本地内容...">
+                <button type="button">🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-wrapper">
+        <!-- Left Column: Main Content -->
+        <div class="content-column">
+            
+            <!-- Hero Banner -->
+            <section class="hero-banner">
+                <h2>发现武威，连接你我</h2>
+                <p>这里是甘肃武威最大的本地网络社区，汇聚本地热点新闻、生活资讯与网友交流。无论你是寻找美食、房产信息，还是分享生活点滴，武威吧都是你的最佳选择。</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <strong>120W+</strong>
+                        <span>注册用户</span>
+                    </div>
+                    <div class="stat-item">
+                        <strong>50W+</strong>
+                        <span>日活人数</span>
+                    </div>
+                    <div class="stat-item">
+                        <strong>10W+</strong>
+                        <span>本地帖子</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Hot Topics Grid -->
+            <section>
+                <div class="section-header">
+                    <h3 class="section-title">🔥 本地热搜榜</h3>
+                    <a href="#" class="section-more">查看更多 ></a>
+                </div>
+                <div class="hot-grid">
+                    <article class="hot-item">
+                        <span class="rank-num">1</span>
+                        <span class="title">武威天梯山石窟修缮工程最新进展通报</span>
+                    </article>
+                    <article class="hot-item">
+                        <span class="rank-num">2</span>
+                        <span class="title">关于凉州城区部分路段交通管制的通知</span>
+                    </article>
+                    <article class="hot-item">
+                        <span class="rank-num">3</span>
+                        <span class="title">寻找在武威火车站走失的儿童，好心人请留步</span>
+                    </article>
+                    <article class="hot-item">
+                        <span class="rank-num">4</span>
+                        <span class="title">2023年武威市高考分数线公布，考生请注意查收</span>
+                    </article>
+                    <article class="hot-item">
+                        <span class="rank-num">5</span>
+                        <span class="title">武威特色美食：三套车与凉州卤肉的正确打开方式</span>
+                    </article>
+                    <article class="hot-item">
+                        <span class="rank-num">6</span>
+                        <span class="title">金武高速今日起封闭施工，请绕行G30连霍高速</span>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Recent Topics List -->
+            <section>
+                <div class="section-header">
+                    <h3 class="section-title">📝 最新帖子</h3>
+                    <a href="#" class="section-more">发表新帖 ></a>
+                </div>
+                <div class="topic-list">
+                    <article class="topic-item">
+                        <div class="topic-avatar">
+                            <img src="https://picsum.photos/seed/user1/100/100" alt="用户头像">
+                        </div>
+                        <div class="topic-content">
+                            <h4 class="topic-title"><a href="#">【求助】请问武威哪里有修古董手表的靠谱店铺？</a></h4>
+                            <div class="topic-meta">
+                                <span class="topic-tag">生活求助</span>
+                                <span>发布于 10分钟前</span>
+                                <span>回复 3</span>
+                                <span>浏览 128</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="topic-item">
+                        <div class="topic-avatar">
+                            <img src="https://picsum.photos/seed/user2/100/100" alt="用户头像">
+                        </div>
+                        <div class="topic-content">
+                            <h4 class="topic-title"><a href="#">周末去哪儿？推荐几个武威周边适合露营的好地方</a></h4>
+                            <div class="topic-meta">
+                                <span class="topic-tag">户外休闲</span>
+                                <span>发布于 25分钟前</span>
+                                <span>回复 12</span>
+                                <span>浏览 456</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="topic-item">
+                        <div class="topic-avatar">
+                            <img src="https://picsum.photos/seed/user3/100/100" alt="用户头像">
+                        </div>
+                        <div class="topic-content">
+                            <h4 class="topic-title"><a href="#">【曝光】民勤县某小区物业收费不透明，业主群热议</a></h4>
+                            <div class="topic-meta">
+                                <span class="topic-tag">爆料维权</span>
+                                <span>发布于 1小时前</span>
+                                <span>回复 45</span>
+                                <span>浏览 1.2k</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="topic-item">
+                        <div class="topic-avatar">
+                            <img src="https://picsum.photos/seed/user4/100/100" alt="用户头像">
+                        </div>
+                        <div class="topic-content">
+                            <h4 class="topic-title"><a href="#">武威老街改造后新貌，你最喜欢哪个角落？</a></h4>
+                            <div class="topic-meta">
+                                <span class="topic-tag">摄影交流</span>
+                                <span>发布于 2小时前</span>
+                                <span>回复 8</span>
+                                <span>浏览 320</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </div>
+
+        <!-- Right Column: Sidebar -->
+        <aside class="sidebar-column">
+            
+            <!-- User Action Card -->
+            <div class="sidebar-card">
+                <h4 style="margin-bottom: 16px; font-size: 16px;">登录/注册</h4>
+                <p style="font-size: 13px; color: #666; margin-bottom: 16px;">加入武威吧，与十万本地网友一起交流互动</p>
+                <button style="width: 100%; padding: 10px; background-color: var(--primary-color); color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">立即登录</button>
+            </div>
+
+            <!-- Hot Topics List -->
+            <div class="sidebar-card">
+                <div class="section-header" style="margin-bottom: 12px; border-bottom: none; padding-bottom: 0;">
+                    <h3 class="section-title" style="font-size: 16px;">🔥 热门话题</h3>
+                </div>
+                <ul class="rank-list">
+                    <li>
+                        <span class="rank-number">1</span>
+                        <a href="#">#武威美食探店#</a>
+                    </li>
+                    <li>
+                        <span class="rank-number">2</span>
+                        <a href="#">#凉州八景新颜#</a>
+                    </li>
+                    <li>
+                        <span class="rank-number">3</span>
+                        <a href="#">#寻找武威老照片#</a>
+                    </li>
+                    <li>
+                        <span class="rank-number">4</span>
+                        <a href="#">#武威相亲角#</a>
+                    </li>
+                    <li>
+                        <span class="rank-number">5</span>
+                        <a href="#">#本地二手交易#</a>
+                    </li>
+                    <li>
+                        <span class="rank-number">6</span>
+                        <a href="#">#新能源汽车充电桩#</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Banner Ad Placeholder -->
+            <div style="background-color: #e0e0e0; height: 250px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #999; font-size: 14px;">
+                广告位招租
+            </div>
+
+            <!-- Community Guidelines -->
+            <div class="sidebar-card">
+                <h4 style="margin-bottom: 12px; font-size: 16px;">📝 社区公约</h4>
+                <ul style="font-size: 13px; color: #666; line-height: 1.8;">
+                    <li>1. 请文明发言，友善交流。</li>
+                    <li>2. 禁止发布虚假广告及涉黄涉暴信息。</li>
+                    <li>3. 严禁人身攻击和地域歧视。</li>
+                    <li>4. 鼓励分享真实、有用的本地生活信息。</li>
+                </ul>
+            </div>
+        </aside>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#">关于我们</a>
+                <a href="#">联系方式</a>
+                <a href="#">用户协议</a>
+                <a href="#">隐私政策</a>
+                <a href="#">帮助中心</a>
+            </div>
+            <p class="copyright">Copyright © 2023 武威吧 Local Community. All Rights Reserved.</p>
+            <p class="copyright" style="margin-top: 8px;">本站内容均为网友发布，不代表本站立场。</p>
+        </div>
+    </footer>
+
+</body>
+                                  </html>
