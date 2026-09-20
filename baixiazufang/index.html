@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="白下租房-专注南京白下区（现秦淮区）优质房源信息发布，提供公寓、单间、合租及整租房源，包含价格走势、周边配套及看房指南，帮助您快速找到理想居所。">
+    <meta name="keywords" content="白下租房,南京租房,秦淮区租房,白下区房源,南京公寓租赁">
+    <title>白下租房-南京白下区优质房源与居住指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #f59e0b;
+            --text-main: #1f2937;
+            --text-secondary: #4b5563;
+            --text-light: #9ca3af;
+            --bg-body: #f3f4f6;
+            --bg-card: #ffffff;
+            --border-color: #e5e7eb;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--bg-card);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .btn-cta {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: var(--radius-md);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .btn-cta:hover {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            padding: 60px 20px;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 32px;
+        }
+
+        .search-bar {
+            background: white;
+            padding: 8px;
+            border-radius: var(--radius-lg);
+            display: flex;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: var(--shadow-md);
+        }
+
+        .search-input {
+            flex: 1;
+            border: none;
+            padding: 12px 16px;
+            font-size: 1rem;
+            outline: none;
+            border-radius: var(--radius-md);
+        }
+
+        .search-btn {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 0 24px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .search-btn:hover {
+            background-color: #d97706;
+        }
+
+        /* Layout */
+        .main-container {
+            max-width: 1200px;
+            margin: 32px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 32px;
+        }
+
+        /* Sidebar */
+        aside {
+            background: var(--bg-card);
+            padding: 20px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            height: fit-content;
+        }
+
+        .sidebar-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .filter-group {
+            margin-bottom: 20px;
+        }
+
+        .filter-group label {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .filter-group select, .filter-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-size: 0.9rem;
+        }
+
+        .price-range {
+            display: flex;
+            gap: 8px;
+        }
+
+        .price-range input {
+            width: 50%;
+        }
+
+        /* Main Content */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .view-all {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .view-all:hover {
+            text-decoration: underline;
+        }
+
+        /* Grid */
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            border: 1px solid var(--border-color);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-image {
+            height: 180px;
+            background-color: #e5e7eb;
+            position: relative;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-tag {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(0,0,0,0.6);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+
+        .card-tag.rent {
+            background-color: var(--primary-color);
+        }
+
+        .card-tag.share {
+            background-color: var(--accent-color);
+        }
+
+        .card-body {
+            padding: 16px;
+        }
+
+        .card-price {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 4px;
+        }
+
+        .card-price span {
+            font-size: 0.875rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+        }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-meta {
+            display: flex;
+            gap: 12px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .card-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .card-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .feature-tag {
+            background-color: #eff6ff;
+            color: var(--primary-color);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+
+        /* Guide Section */
+        .guide-section {
+            margin-top: 48px;
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .guide-card {
+            background: white;
+            padding: 24px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .guide-icon {
+            width: 48px;
+            height: 48px;
+            background-color: #eff6ff;
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            font-size: 1.5rem;
+        }
+
+        .guide-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+        }
+
+        .guide-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111827;
+            color: #d1d5db;
+            padding: 48px 20px 20px;
+            margin-top: 64px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 20px;
+            border-top: 1px solid #374151;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none; /* Simplified for mobile */
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .guide-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                白下租房
+            </a>
+            <nav class="nav-links">
+                <a href="#" class="active">首页</a>
+                <a href="#">整租</a>
+                <a href="#">合租</a>
+                <a href="#">小区</a>
+                <a href="#">地图找房</a>
+            </nav>
+            <a href="#" class="btn-cta">发布房源</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>发现您在白下的理想家园</h1>
+            <p>海量真实房源，覆盖白下区（现秦淮区）核心商圈，从市中心公寓到安静小区，一键筛选，轻松看房。</p>
+            <div class="search-bar">
+                <input type="text" class="search-input" placeholder="输入小区名、地铁站或商圈（如：新街口、大行宫）">
+                <button class="search-btn">搜索</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="main-container">
+        <!-- Sidebar Filters -->
+        <aside>
+            <div class="sidebar-title">筛选条件</div>
+            
+            <div class="filter-group">
+                <label>房屋类型</label>
+                <select>
+                    <option>不限</option>
+                    <option>整租</option>
+                    <option>合租</option>
+                    <option>单间</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>租金范围 (元/月)</label>
+                <div class="price-range">
+                    <input type="number" placeholder="最低">
+                    <span>-</span>
+                    <input type="number" placeholder="最高">
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <label>户型</label>
+                <select>
+                    <option>不限</option>
+                    <option>1室1厅</option>
+                    <option>2室1厅</option>
+                    <option>3室1厅</option>
+                    <option>4室1厅</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label>区域/商圈</label>
+                <select>
+                    <option>白下区全境</option>
+                    <option>新街口商圈</option>
+                    <option>大行宫商圈</option>
+                    <option>瑞金路商圈</option>
+                </select>
+            </div>
+
+            <button class="btn-cta" style="width: 100%; border: none;">应用筛选</button>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main>
+            <div class="section-header">
+                <h2 class="section-title">最新推荐房源</h2>
+                <a href="#" class="view-all">查看更多 &rarr;</a>
+            </div>
+
+            <div class="property-grid">
+                <!-- Card 1 -->
+                <article class="card">
+                    <div class="card-image">
+                        <span class="card-tag rent">整租</span>
+                        <img src="https://picsum.photos/seed/apartment1/400/300" alt="市中心精装公寓">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-price">4,500<span>元/月</span></div>
+                        <h3 class="card-title">新街口附近精装一居室，拎包入住</h3>
+                        <div class="card-meta">
+                            <span class="card-meta-item">1室1厅</span>
+                            <span class="card-meta-item">45㎡</span>
+                            <span class="card-meta-item">近地铁</span>
+                        </div>
+                        <div class="card-features">
+                            <span class="feature-tag">近地铁</span>
+                            <span class="feature-tag">家电齐全</span>
+                            <span class="feature-tag">采光好</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="card">
+                    <div class="card-image">
+                        <span class="card-tag rent">合租</span>
+                        <img src="https://picsum.photos/seed/room2/400/300" alt="舒适合租单间">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-price">1,800<span>元/月</span></div>
+                        <h3 class="card-title">大行宫小区温馨合租主卧，阳光房</h3>
+                        <div class="card-meta">
+                            <span class="card-meta-item">主卧</span>
+                            <span class="card-meta-item">18㎡</span>
+                            <span class="card-meta-item">独立卫浴</span>
+                        </div>
+                        <div class="card-features">
+                            <span class="feature-tag">近地铁</span>
+                            <span class="feature-tag">干湿分离</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="card">
+                    <div class="card-image">
+                        <span class="card-tag rent">整租</span>
+                        <img src="https://picsum.photos/seed/house3/400/300" alt="瑞金路品质小区">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-price">6,200<span>元/月</span></div>
+                        <h3 class="card-title">瑞金路两居室，中高档小区环境优</h3>
+                        <div class="card-meta">
+                            <span class="card-meta-item">2室1厅</span>
+                            <span class="card-meta-item">75㎡</span>
+                            <span class="card-meta-item">电梯房</span>
+                        </div>
+                        <div class="card-features">
+                            <span class="feature-tag">近地铁</span>
+                            <span class="feature-tag">有车位</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="card">
+                    <div class="card-image">
+                        <span class="card-tag rent">整租</span>
+                        <img src="https://picsum.photos/seed/apt4/400/300" alt="市中心公寓">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-price">5,800<span>元/月</span></div>
+                        <h3 class="card-title">市中心高档公寓，拎包入住，拎包入住</h3>
+                        <div class="card-meta">
+                            <span class="card-meta-item">1室1厅</span>
+                            <span class="card-meta-item">50㎡</span>
+                            <span class="card-meta-item">近地铁</span>
+                        </div>
+                        <div class="card-features">
+                            <span class="feature-tag">近地铁</span>
+                            <span class="feature-tag">24h物业</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 5 -->
+                <article class="card">
+                    <div class="card-image">
+                        <span class="card-tag rent">合租</span>
+                        <img src="https://picsum.photos/seed/room5/400/300" alt="安静合租">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-price">1,500<span>元/月</span></div>
+                        <h3 class="card-title">逸仙桥附近合租次卧，安静舒适</h3>
+                        <div class="card-meta">
+                            <span class="card-meta-item">次卧</span>
+                            <span class="card-meta-item">15㎡</span>
+                            <span class="card-meta-item">公用卫浴</span>
+                        </div>
+                        <div class="card-features">
+                            <span class="feature-tag">近地铁</span>
+                            <span class="feature-tag">无中介费</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 6 -->
+                <article class="card">
+                    <div class="card-image">
+                        <span class="card-tag rent">整租</span>
+                        <img src="https://picsum.photos/seed/house6/400/300" alt="学区房">
+                    </div>
+                    <div class="card-body">
+                        <div class="card-price">7,500<span>元/月</span></div>
+                        <h3 class="card-title">大行宫学区房，近三中，环境好</h3>
+                        <div class="card-meta">
+                            <span class="card-meta-item">2室1厅</span>
+                            <span class="card-meta-item">80㎡</span>
+                            <span class="card-meta-item">近地铁</span>
+                        </div>
+                        <div class="card-features">
+                            <span class="feature-tag">学区房</span>
+                            <span class="feature-tag">装修新</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="guide-section">
+                <div class="section-header">
+                    <h2 class="section-title">租房指南与注意事项</h2>
+                </div>
+                <div class="guide-grid">
+                    <div class="guide-card">
+                        <div class="guide-icon">🔍</div>
+                        <h3>如何辨别真假房源</h3>
+                        <p>在白下租房时，请警惕过低价格、图片与实际不符或要求提前转账的房源。建议优先选择平台认证的房东。</p>
+                    </div>
+                    <div class="guide-card">
+                        <div class="guide-icon">📝</div>
+                        <h3>签订租房合同要点</h3>
+                        <p>务必签订正规租赁合同，明确租金支付方式、押金退还条件、维修责任及租期终止条款，避免口头协议。</p>
+                    </div>
+                    <div class="guide-card">
+                        <div class="guide-icon">🚇</div>
+                        <h3>白下区交通与配套</h3>
+                        <p>白下区（秦淮区）交通发达，地铁1、2、3号线交汇。租房前建议实地考察周边菜市场、医院及商场分布。</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>白下租房</h4>
+                <p style="font-size: 0.9rem; line-height: 1.8;">专注南京白下区（秦淮区）房产租赁服务，致力于为租客和房东提供安全、高效的房屋交易环境。</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="#">发布房源</a></li>
+                    <li><a href="#">租房攻略</a></li>
+                    <li><a href="#">看房地图</a></li>
+                    <li><a href="#">联系客服</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>服务支持</h4>
+                <ul>
+                    <li><a href="#">关于我们</a></li>
+                    <li><a href="#">用户协议</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">帮助中心</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 白下租房. All rights reserved. 本站信息仅供参考，请以实际看房为准。</p>
+        </div>
+    </footer>
+
+</body>
+  </html>
