@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="老王66网提供精选的影视资源、热门动漫推荐及实用软件工具下载。这里有最新的高清电影、热门剧集、二次元动画以及安全无毒的软件合集，满足您的娱乐与工具需求。">
+    <meta name="keywords" content="老王66网,影视资源,动漫推荐,软件下载,高清电影,在线观看">
+    <title>老王66网-精选影视资源、动漫推荐与实用软件下载平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff6b35;
+            --secondary-color: #1a1a1a;
+            --accent-color: #00d2d3;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-sub: #666666;
+            --spacing-unit: 16px;
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: var(--spacing-unit) 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #fff;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            font-size: 1rem;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+            background-color: rgba(255, 107, 53, 0.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #000000 100%);
+            color: #fff;
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #ddd;
+            max-width: 600px;
+            margin: 0 auto 25px;
+        }
+
+        .search-box {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            border-radius: 50px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        .search-box button {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+            padding: 0 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .search-box button:hover {
+            background-color: #e55a2b;
+        }
+
+        /* Main Content Grid */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+            .header-inner {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Section Styles */
+        section {
+            margin-bottom: 40px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            color: var(--secondary-color);
+            border-left: 5px solid var(--primary-color);
+            padding-left: 10px;
+        }
+
+        .view-all {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Card Grid */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 140px;
+            background-color: #ddd;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-main);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-meta {
+            font-size: 0.8rem;
+            color: var(--text-sub);
+            margin-bottom: 10px;
+        }
+
+        .card-tag {
+            display: inline-block;
+            background-color: #f0f0f0;
+            color: #666;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            margin-bottom: 10px;
+            align-self: flex-start;
+        }
+
+        .btn-card {
+            margin-top: auto;
+            display: block;
+            text-align: center;
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 8px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .btn-card:hover {
+            background-color: var(--primary-color);
+        }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .rank-list {
+            counter-reset: rank;
+        }
+
+        .rank-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .rank-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .rank-item::before {
+            counter-increment: rank;
+            content: counter(rank);
+            width: 24px;
+            height: 24px;
+            background-color: var(--primary-color);
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .rank-item:nth-child(n+4)::before {
+            background-color: #999;
+        }
+
+        .rank-item a {
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+
+        .rank-item a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Ad Placeholder */
+        .ad-banner {
+            width: 100%;
+            height: 250px;
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            border: 1px dashed #ccc;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: #aaa;
+            padding: 40px 0 20px;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+        }
+
+        /* Utility */
+        .tag-blue { background-color: #e3f2fd; color: #1565c0; }
+        .tag-green { background-color: #e8f5e9; color: #2e7d32; }
+        .tag-red { background-color: #ffebee; color: #c62828; }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">老王<span>66网</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">高清影视</a></li>
+                    <li><a href="#">动漫推荐</a></li>
+                    <li><a href="#">软件工具</a></li>
+                    <li><a href="#">最新资讯</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>发现精彩，触手可及</h1>
+            <p>老王66网致力于为您提供最优质的影视娱乐与实用工具资源。高清无码，安全无毒，畅享数字生活。</p>
+            <form class="search-box" onsubmit="event.preventDefault(); alert('搜索功能正在建设中，请浏览分类列表。');">
+                <input type="text" placeholder="搜索电影、动漫、软件...">
+                <button type="submit">搜索</button>
+            </form>
+        </div>
+    </section>
+
+    <main class="container">
+        <div class="main-layout">
+            <!-- Left Content -->
+            <div class="content-area">
+                
+                <!-- Featured Movie -->
+                <section>
+                    <div class="section-header">
+                        <h2 class="section-title">今日推荐</h2>
+                        <a href="#" class="view-all">更多 &gt;</a>
+                    </div>
+                    <div class="card-grid">
+                        <article class="card">
+                            <img src="https://picsum.photos/seed/movie1/300/200" alt="电影海报" class="card-img">
+                            <div class="card-body">
+                                <span class="card-tag tag-red">动作</span>
+                                <h3 class="card-title">星际穿越：终极版</h3>
+                                <p class="card-meta">2023 | 2小时15分 | 4K高清</p>
+                                <a href="#" class="btn-card">立即观看</a>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <img src="https://picsum.photos/seed/movie2/300/200" alt="电影海报" class="card-img">
+                            <div class="card-body">
+                                <span class="card-tag tag-blue">科幻</span>
+                                <h3 class="card-title">赛博朋克：边缘行者</h3>
+                                <p class="card-meta">2024 | 24集 | 1080P</p>
+                                <a href="#" class="btn-card">立即观看</a>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <img src="https://picsum.photos/seed/movie3/300/200" alt="电影海报" class="card-img">
+                            <div class="card-body">
+                                <span class="card-tag tag-green">剧情</span>
+                                <h3 class="card-title">深蓝的童谣</h3>
+                                <p class="card-meta">2022 | 1小时40分 | BluRay</p>
+                                <a href="#" class="btn-card">立即观看</a>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <img src="https://picsum.photos/seed/movie4/300/200" alt="电影海报" class="card-img">
+                            <div class="card-body">
+                                <span class="card-tag tag-red">惊悚</span>
+                                <h3 class="card-title">迷雾追踪</h3>
+                                <p class="card-meta">2023 | 2小时 | 720P</p>
+                                <a href="#" class="btn-card">立即观看</a>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- Anime Section -->
+                <section>
+                    <div class="section-header">
+                        <h2 class="section-title">热门动漫</h2>
+                        <a href="#" class="view-all">更多 &gt;</a>
+                    </div>
+                    <div class="card-grid">
+                        <article class="card">
+                            <img src="https://picsum.photos/seed/anime1/300/200" alt="动漫封面" class="card-img">
+                            <div class="card-body">
+                                <span class="card-tag tag-blue">热血</span>
+                                <h3 class="card-title">灼眼的夏娜·重制版</h3>
+                                <p class="card-meta">更新至第12集</p>
+                                <a href="#" class="btn-card">观看动画</a>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <img src="https://picsum.photos/seed/anime2/300/200" alt="动漫封面" class="card-img">
+                            <div class="card-body">
+                                <span class="card-tag tag-green">治愈</span>
+                                <h3 class="card-title">虫师：绿之境</h3>
+                                <p class="card-meta">经典重映</p>
+                                <a href="#" class="btn-card">观看动画</a>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <img src="https://picsum.photos/seed/anime3/300/200" alt="动漫封面" class="card-img">
+                            <div class="card-body">
+                                <span class="card-tag tag-red">悬疑</span>
+                                <h3 class="card-title">名侦探柯南：零的执行人</h3>
+                                <p class="card-meta">剧场版</p>
+                                <a href="#" class="btn-card">观看动画</a>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <img src="https://picsum.photos/seed/anime4/300/200" alt="动漫封面" class="card-img">
+                            <div class="card-body">
+                                <span class="card-tag tag-blue">恋爱</span>
+                                <h3 class="card-title">辉夜大小姐想让我告白</h3>
+                                <p class="card-meta">完结</p>
+                                <a href="#" class="btn-card">观看动画</a>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- Software Section -->
+                <section>
+                    <div class="section-header">
+                        <h2 class="section-title">实用软件</h2>
+                        <a href="#" class="view-all">更多 &gt;</a>
+                    </div>
+                    <div class="card-grid">
+                        <article class="card">
+                            <img src="https://picsum.photos/seed/soft1/300/200" alt="软件图标" class="card-img">
+                            <div class="card-body">
+                                <span class="card-tag tag-green">工具</span>
+                                <h3 class="card-title">全能视频转换器 Pro</h3>
+                                <p class="card-meta">支持4K转码 | 绿色免安装</p>
+                                <a href="#" class="btn-card">下载软件</a>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <img src="https://picsum.photos/seed/soft2/300/200" alt="软件图标" class="card-img">
+                            <div class="card-body">
+                                <span class="card-tag tag-blue">系统</span>
+                                <h3 class="card-title">Windows优化大师 2024</h3>
+                                <p class="card-meta">系统清理 | 性能加速</p>
+                                <a href="#" class="btn-card">下载软件</a>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <img src="https://picsum.photos/seed/soft3/300/200" alt="软件图标" class="card-img">
+                            <div class="card-body">
+                                <span class="card-tag tag-green">办公</span>
+                                <h3 class="card-title">WPS Office 专业版</h3>
+                                <p class="card-meta">云同步 | 多端支持</p>
+                                <a href="#" class="btn-card">下载软件</a>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <img src="https://picsum.photos/seed/soft4/300/200" alt="软件图标" class="card-img">
+                            <div class="card-body">
+                                <span class="card-tag tag-red">安全</span>
+                                <h3 class="card-title">360安全卫士旗舰版</h3>
+                                <p class="card-meta">防病毒 | 网速保护</p>
+                                <a href="#" class="btn-card">下载软件</a>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <!-- Ad -->
+                <div class="ad-banner">
+                    广告位
+                </div>
+
+                <!-- Hot Ranking -->
+                <div class="sidebar-widget">
+                    <div class="section-header">
+                        <h3 class="section-title" style="font-size: 1.2rem; border:none; padding:0; margin:0;">本周热搜</h3>
+                    </div>
+                    <ul class="rank-list">
+                        <li class="rank-item"><a href="#">黑神话：悟空 完整版</a></li>
+                        <li class="rank-item"><a href="#">原神 4.0版本更新内容</a></li>
+                        <li class="rank-item"><a href="#">最新MacBook Pro评测</a></li>
+                        <li class="rank-item"><a href="#">2024年必看科幻电影</a></li>
+                        <li class="rank-item"><a href="#">免费开源视频剪辑软件</a></li>
+                        <li class="rank-item"><a href="#">iPhone 16 爆料汇总</a></li>
+                        <li class="rank-item"><a href="#">Steam 夏季特卖时间表</a></li>
+                        <li class="rank-item"><a href="#">如何修复电脑蓝屏问题</a></li>
+                    </ul>
+                </div>
+
+                <!-- Help/Info -->
+                <div class="sidebar-widget">
+                    <h3 class="section-title" style="font-size: 1.2rem; border:none; padding:0; margin:0 0 15px 0;">使用指南</h3>
+                    <p style="font-size: 0.9rem; color: #666; margin-bottom: 10px;">
+                        <strong>如何播放：</strong><br>
+                        点击卡片上的“立即观看”或“下载软件”按钮，即可进入播放页面或下载中心。
+                    </p>
+                    <p style="font-size: 0.9rem; color: #666; margin-bottom: 10px;">
+                        <strong>常见问题：</strong><br>
+                        资源是否安全？所有软件均经过人工检测，确保无毒无广告。
+                    </p>
+                    <a href="#" style="color: var(--primary-color); font-size: 0.9rem; font-weight: 600;">查看更多帮助 &rarr;</a>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>关于老王66网</h4>
+                    <p style="font-size: 0.9rem; line-height: 1.6;">
+                        老王66网是一个专注于分享高清影视、热门动漫及实用软件的综合性资源分享平台。我们致力于为用户提供便捷、快速、安全的数字资源获取体验。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#">网站地图</a></li>
+                        <li><a href="#">免责声明</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">联系站长</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>热门分类</h4>
+                    <ul>
+                        <li><a href="#">国产电影</a></li>
+                        <li><a href="#">好莱坞大片</a></li>
+                        <li><a href="#">日韩动漫</a></li>
+                        <li><a href="#">系统工具</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 老王66网 版权所有. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+  </html>
